@@ -12,13 +12,21 @@ export class RegisterComponent implements OnInit {
 
   persona = new Persona();
 
-  constructor() { }
+  constructor(private firebaseService: FirebaseService) { }
 
   ngOnInit(): void {
   }
 
   registrar(form: NgForm){
     
+    this.persona = {
+      cedula: form.value.cedula,
+      nombre: form.value.nombre,
+      edad: form.value.edad,
+      deuda: form.value.deuda 
+    };
+    
+    this.firebaseService.registrar(this.persona);
     console.log(form);
 
   }

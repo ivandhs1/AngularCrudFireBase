@@ -11,7 +11,8 @@ export class FirebaseService {
   private url = 'https://shopdond-default-rtdb.firebaseio.com'
 
   constructor(private HttpClient : HttpClient) {}
-/*   registrar(persona: Persona){
+  
+  registrar(persona: Persona){
       this.HttpClient.post(`${this.url}/clients.json`,persona).subscribe(response => console.log(response))
-  } */
+  }
 }
