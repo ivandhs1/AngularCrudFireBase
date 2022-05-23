@@ -1,0 +1,19 @@
+<hr>
+<div class="cajaRegister">
+    <h2 class="text-center">Ingrese los Datos </h2>
+    <form action="" class="formRegister" (ngSubmit)="registrar( f )" #f="ngForm">
+
+        <div class="cajaInputsR">
+            <input class="inputCedula form-control" type="text" placeholder="Ingrese su Cedula" name="cedula" [(ngModel)]="persona.cedula">
+            <input class="inputNombre form-control" type="text" placeholder="Ingrese su Nombre" name="nombre" [(ngModel)]="persona.nombre">
+            <input class="inputEdad form-control" type="text" placeholder="Ingrese su Edad" name="edad" [(ngModel)]="persona.edad">
+            <input class="inputDeuda form-control" type="text" placeholder="Ingrese su Deuda" name="deuda" [(ngModel)]="persona.deuda">
+        </div>
+        <div class="cajaBtnR">
+            <a class="btn btn-danger button">Cancel</a>
+            <button class="btn btn-primary button" id="enviar" type="submit" > Register</button>
+        </div>
+
+    </form>
+</div>
+<hr>

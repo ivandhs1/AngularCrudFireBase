@@ -1,0 +1,22 @@
+.header{
+    display: flex;
+    flex-direction: row;
+    gap: 20%;
+    justify-content: space-around;
+    padding: 1%;
+    background-color: black;
+    color: white;
+}
+
+h1{
+    font-size: 6vh;
+    transition: 0.2s;
+}
+
+h1:hover{
+    transform: scale(1.1,1.1);
+    background: -webkit-linear-gradient(white,rgb(142, 162, 163));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: rgb(255, 255, 255);  
+}
