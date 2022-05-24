@@ -1,3 +1,4 @@
+import Swal from 'sweetalert2';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Persona } from 'src/app/model/persona.model';
@@ -11,6 +12,8 @@ import { FirebaseService } from 'src/app/services/firebase.service';
 export class RegisterComponent implements OnInit {
 
   persona = new Persona();
+  peticion: any;
+  validacion: any;
 
   constructor(private firebaseService: FirebaseService) { }
 
@@ -18,16 +21,31 @@ export class RegisterComponent implements OnInit {
   }
 
   registrar(form: NgForm){
-    
+    this.validacion=false;
+
     this.persona = {
       cedula: form.value.cedula,
       nombre: form.value.nombre,
-      edad: form.value.edad,
-      deuda: form.value.deuda 
+      edad: parseInt(form.value.edad),
+      deuda: parseFloat(form.value.deuda) 
     };
-    
-    this.firebaseService.registrar(this.persona);
-    console.log(form);
+
+    if(this.persona.cedula==="" || this.persona.nombre==="" || this.persona.edad===NaN || this.persona.edad===0 || this.persona.edad>100 ){
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'verifique Datos Ingresados',
+        footer: 'Verifique si ya esta Registrado'
+      })
+
+    }else{
+      this.peticion=this.firebaseService.registrar(this.persona);
+      Swal.fire(
+        'Registrado Correctamente!',
+        'Dale Click al Boton para Continuar!',
+        'success'
+      )
+    }
 
   }
 

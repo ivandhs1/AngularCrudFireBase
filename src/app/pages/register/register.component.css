@@ -1,6 +1,6 @@
 .cajaRegister{
-    padding-top: 20%;
-    padding-bottom: 20%;
+    padding-top: 10%;
+    padding-bottom: 19%;
 }
 
 .formRegister{
@@ -15,12 +15,14 @@
 
 .cajaInputsR{
     display: grid;
-    gap: 20px;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    gap: 25px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr fr;
     grid-template-areas: 
-    'cedula nombre'
-    'edad deuda';
+    'cedula'
+    'nombre'
+    'edad'
+    'deuda';
 }
 
 .inputCedula{
@@ -49,4 +51,17 @@
 
 .button{
     width: 14.5%;
+}
+
+.cajaError{
+    position: absolute;
+    left: 25%;
+    bottom: 20%;
+    background-color: rgba(255, 0, 0, 0.377);
+    width: 50%;
+    height: 10vh;
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 16px;
+    transition: 1s;
 }

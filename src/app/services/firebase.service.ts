@@ -9,10 +9,13 @@ import { map } from 'rxjs/operators';
 export class FirebaseService {
 
   private url = 'https://shopdond-default-rtdb.firebaseio.com'
+  private peticion: any;
 
   constructor(private HttpClient : HttpClient) {}
   
   registrar(persona: Persona){
-      this.HttpClient.post(`${this.url}/clients.json`,persona).subscribe(response => console.log(response))
-  }
+      this.peticion=this.HttpClient.post(`${this.url}/clients.json`,persona).subscribe(response => console.log(response));
+      console.log(this.peticion.closed);
+      return this.peticion.closed;
+    }
 }
